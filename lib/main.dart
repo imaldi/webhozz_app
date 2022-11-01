@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webhozz_app/screens/second_screen.dart';
 import 'package:webhozz_app/widgets/stateful_widget_example_by_aldi.dart';
 import 'package:webhozz_app/widgets/stateless_widget_example_by_aldi.dart';
 
@@ -96,22 +97,60 @@ class _MyHomePageState extends State<MyHomePage> {
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("1. Buat Layout Sederhana",style: TextStyle(fontSize: 32),),
+              Text(
+                "1. Buat Layout Sederhana",
+                style: TextStyle(fontSize: 32),
+              ),
               Text(
                 'Aldi Irsan Majid',
                 style: TextStyle(fontSize: 32),
               ),
-              Image.asset("assets/images/my_photo.jpg",width: 150,),
-              SizedBox(height: 64,),
-              Divider(thickness: 5,),
-              Text("2. Contoh Widget Stateless dan Stateful",style: TextStyle(fontSize: 32),),
+              Image.asset(
+                "assets/images/my_photo.jpg",
+                width: 150,
+              ),
+              SizedBox(
+                height: 64,
+              ),
+              Divider(
+                thickness: 5,
+              ),
+              Text(
+                "2. Contoh Widget Stateless dan Stateful",
+                style: TextStyle(fontSize: 32),
+              ),
               StatelessWidgetExampleByAldi(),
               StatefulWidgetExampleByAldi(),
-
+              SizedBox(
+                height: 64,
+              ),
+              Divider(
+                thickness: 5,
+              ),
+              Text(
+                "3. Contoh Navigation Sederhana",
+                style: TextStyle(fontSize: 32),
+              ),
+              SizedBox(
+                height: 64,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (cont){
+                        return SecondScreen();
+                      }));
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  child: Text("Go to Second Screen")),
+              SizedBox(
+                height: 64,
+              ),
             ],
           ),
         ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
